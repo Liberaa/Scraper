@@ -1,0 +1,32 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "A job scraper for Indeed IT jobs using Node.js, Express, and MongoDB",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liberaa/Scraper.git"
+  },
+  "keywords": ["scraper", "job scraper", "Indeed", "Node.js", "Express", "MongoDB"],
+  "author": "Liberaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liberaa/Scraper/issues"
+  },
+  "homepage": "https://github.com/Liberaa/Scraper#readme",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
