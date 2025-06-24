@@ -1,19 +1,20 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import path from 'path'
-import mongoose from 'mongoose'
-import jobRoutes from './routes/jobRoutes.js'
+import { fileURLToPath } from 'url'
+import dotenv from 'dotenv'
 import { connectDB } from './config/db.js'
+import jobRoutes from './routes/jobRoutes.js'
 
 dotenv.config()
 connectDB()
 
 const app = express()
-const __dirname = path.resolve()
-
 app.use(express.json())
-app.use(express.static(path.join(__dirname, 'public')))
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+app.use(express.static(path.join(__dirname, 'public')))
 app.use('/api/jobs', jobRoutes)
 
 app.get('/', (req, res) => {

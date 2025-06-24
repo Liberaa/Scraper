@@ -12,7 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/Liberaa/Scraper.git"
   },
-  "keywords": ["scraper", "job scraper", "Indeed", "Node.js", "Express", "MongoDB"],
+  "keywords": [
+    "scraper",
+    "job scraper",
+    "Indeed",
+    "Node.js",
+    "Express",
+    "MongoDB"
+  ],
   "author": "Liberaa",
   "license": "ISC",
   "bugs": {
@@ -24,7 +31,10 @@
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.0",
     "express": "^4.19.2",
-    "mongoose": "^8.3.1"
+    "mongoose": "^8.3.1",
+    "puppeteer": "^24.10.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

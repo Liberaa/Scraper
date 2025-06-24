@@ -1,28 +1,47 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import puppeteer from 'puppeteer-extra'
+import StealthPlugin from 'puppeteer-extra-plugin-stealth'
+
+puppeteer.use(StealthPlugin())
+
 
 export const scrapeIndeedJobs = async () => {
-  const url = 'https://www.indeed.com/jobs?q=web+developer&l=remote'
-  const { data } = await axios.get(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
-    }
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   })
 
-  const $ = cheerio.load(data)
-  const jobs = []
+  const page = await browser.newPage()
 
-  $('.job_seen_beacon').each((_, el) => {
-    const title = $(el).find('h2 span').text().trim()
-    const company = $(el).find('.companyName').text().trim()
-    const location = $(el).find('.companyLocation').text().trim()
-    const relativeLink = $(el).find('a').attr('href')
-    const url = relativeLink ? `https://www.indeed.com${relativeLink}` : ''
+  await page.setUserAgent(
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+  )
 
-    if (title && company && location && url) {
-      jobs.push({ title, company, location, url })
-    }
+  await page.goto('https://www.indeed.com/jobs?q=web+developer&l=remote', {
+    waitUntil: 'domcontentloaded',
+    timeout: 60000
   })
 
+  await page.waitForSelector('.job_seen_beacon', { timeout: 15000 })
+
+  const jobs = await page.evaluate(() => {
+    const jobCards = document.querySelectorAll('.job_seen_beacon')
+    const scrapedJobs = []
+
+    jobCards.forEach(card => {
+      const title = card.querySelector('h2 span')?.innerText || ''
+      const company = card.querySelector('.companyName')?.innerText || ''
+      const location = card.querySelector('.companyLocation')?.innerText || ''
+      const relativeLink = card.querySelector('a')?.getAttribute('href') || ''
+      const url = relativeLink ? 'https://www.indeed.com' + relativeLink : ''
+
+      if (title && company && location && url) {
+        scrapedJobs.push({ title, company, location, url })
+      }
+    })
+
+    return scrapedJobs
+  })
+
+  await browser.close()
   return jobs
 }
