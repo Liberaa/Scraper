@@ -1,18 +1,114 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout & färgtema */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
   padding: 2rem;
-  background: #f4f4f4;
 }
+
 .container {
-  max-width: 600px;
+  max-width: 960px;
   margin: auto;
-  background: white;
-  padding: 1rem;
-  border-radius: 5px;
 }
-button {
-  margin-bottom: 1rem;
+
+/* Titel */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #111827;
 }
-li {
+
+/* Filterrad */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter-bar input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  min-width: 180px;
+}
+
+.filter-bar button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.filter-bar button:hover {
+  background: #2563eb;
+}
+
+/* Jobblista */
+.job-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Jobbkort */
+.job-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+.job-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Kortinnehåll */
+.job-card h3 {
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
+  color: #111827;
+}
+.job-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin: 0.2rem 0;
+}
+.job-card .description {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.4;
+  height: 4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ansökningsknapp */
+.apply-button {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: #10b981;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+.apply-button:hover {
+  background: #059669;
 }

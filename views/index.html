@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Job Scraper</title>
+  <title>Jobbsök - JavaScript / Node.js</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Indeed IT Jobs</h1>
-    <button id="scrapeBtn">Scrape Jobs</button>
-    <ul id="jobList"></ul>
+    <h1>JavaScript / Node.js-jobb i Sverige</h1>
+
+    <div class="filter-bar">
+      <input type="text" id="filterTech" placeholder="🛠️ Teknik (ex. React, Node)">
+      <input type="text" id="filterLocation" placeholder="📍 Plats (ex. Stockholm)">
+      <input type="text" id="filterType" placeholder="💼 Typ (ex. Junior, Internship)">
+      <button id="applyFilters">🔍 Filtrera</button>
+      <button id="scrapeBtn">🔄 Hämta nya jobb</button>
+    </div>
+
+    <div id="jobList" class="job-list"></div>
   </div>
+
   <script src="/app.js"></script>
 </body>
 </html>
