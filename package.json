@@ -27,19 +27,27 @@
   },
   "homepage": "https://github.com/Liberaa/Scraper#readme",
   "dependencies": {
+    "@playwright/test": "^1.53.1",
     "axios": "^1.10.0",
     "axios-retry": "^4.5.0",
     "cheerio": "^1.1.0",
+    "cloudscraper": "^4.6.0",
+    "csv-writer": "^1.6.0",
     "dotenv": "^16.4.0",
     "express": "^4.19.2",
+    "fast-xml-parser": "^5.2.5",
     "mongoose": "^8.3.1",
     "node-fetch": "^3.3.2",
+    "playwright": "^1.53.1",
+    "playwright-extra": "^4.3.6",
+    "playwright-extra-plugin-stealth": "^0.0.1",
     "puppeteer": "^24.10.2",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-anonymize-ua": "^2.4.6",
     "puppeteer-extra-plugin-recaptcha": "^3.6.8",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "puppeteer-real-browser": "^1.4.2"
+    "puppeteer-real-browser": "^1.4.2",
+    "random-useragent": "^0.5.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
