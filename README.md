@@ -1,4 +1,4 @@
-# Indeed Scraper v34.0.0 — "Enhanced Anti-Detection" Edition
+# Indeed Scraper  — "Anti-Detection Bypass"
 
 A stealthy and robust scraper for job listings on [Indeed](https://www.indeed.com), using a mix of RSS, ScrapingAnt API, Cloudscraper, and Puppeteer to avoid detection.
 
